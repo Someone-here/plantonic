@@ -1,6 +1,6 @@
 {
     config: {
-        temp: "C"
+        temp: "C",
         soilMoisture: "percentage"
     },
     plants: [
@@ -27,8 +27,8 @@
                 {name: "Cactus", maxTemp: 95, minTemp: 70},
                 {name: "Daisy", maxTemp: 25, minTemp: 15},
                 {name: "Hibiscus", maxTemp: 20, minTemp: 10},
-                {name: "Cacti", maxTemp: 30 minTemp: 20},
-                {name: "Spider plant", maxTemp: 30 minTemp: 20}
+                {name: "Cactus", maxTemp: 30, minTemp: 20},
+                {name: "Spider plant", maxTemp: 30, minTemp: 20}
             ]
         },
         {
