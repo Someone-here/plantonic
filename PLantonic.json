@@ -1,0 +1,48 @@
+{
+    config: {
+        temp: "C"
+        soilMoisture: "percentage"
+    },
+    plants: [
+        {
+            category: "mesophytes",
+            maxSoilMoisture: 60,
+            minSoilMoisture: 40,
+            members: [
+                {name: "Gloden rod", maxTemp: 10, minTemp: 8},
+                {name: "Cloves", maxTemp: 30, minTemp: 20},
+                {name: "Roses", maxTemp: 26, minTemp: 18},
+                {name: "Basil", maxTemp: 25, minTemp: 10}
+            ]
+        },
+        {
+            category: "xerophytes",
+            maxSoilMoisture: 20,
+            minSoilMoisture: 10,
+            members: [
+                {name: "Pine", maxTemp: -7, minTemp: -54},
+                {name: "Spruce", maxTemp: -7, minTemp: -54},
+                {name: "Fir", maxTemp: -7, minTemp: -54},
+                {name: "Pineapple", maxTemp: 30, minTemp: 20},
+                {name: "Cactus", maxTemp: 95, minTemp: 70},
+                {name: "Daisy", maxTemp: 25, minTemp: 15},
+                {name: "Hibiscus", maxTemp: 20, minTemp: 10},
+                {name: "Cacti", maxTemp: 30 minTemp: 20},
+                {name: "Spider plant", maxTemp: 30 minTemp: 20}
+            ]
+        },
+        {
+            category: "succulents",
+            maxSoilMoisture: 20,
+            minSoilMoisture: 10,
+            members: [
+            {name: "Jelly bean", maxTemp: 32, minTemp: 15},
+            {name: "Stone crop", maxTemp: 32, minTemp: 15},
+            {name: "Golden sedum", maxTemp: 32, minTemp: 15},
+            {name: "Jade plant", maxTemp: 32, minTemp: 15},
+            {name: "Snake plant", maxTemp: 32, minTemp: 15}
+          ]
+        }
+    ]
+
+}
