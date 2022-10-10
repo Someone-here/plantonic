@@ -9,18 +9,19 @@
   </head>
   <body>
     <table>
-        <tr>
-            <th>Time</th>
-            <th>Temperature</th>
-            <th>Humidity</th>
-        </tr>
-        {% for i in data %}
-            <tr>
-                {% for j in i %}
-                <td>{{j}}</td>
-                {% endfor %}
-            </tr>
-        {% endfor %} 
+      <tr>
+        <th>Time</th>
+        <th>Temperature</th>
+        <th>Humidity</th>
+        <th>Sunlight</th>
+      </tr>
+      {% for i in data %}
+      <tr>
+        {% for j in i %}
+        <td>{{j}}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
     </table>
   </body>
 </html>

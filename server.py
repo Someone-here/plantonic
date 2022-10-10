@@ -24,20 +24,21 @@ token = os.getenv("DATA_PASS") if os.getenv(
 
 @app.route("/")
 def home():
-    return '<h1>Nothing here, go to <a href="/data">data</a>'
+    data = wk.get("A2:D1000")
+    return render_template("data.html", data=data)
 
 
 @app.route("/data", methods=["POST", "GET"])
 def post():
     if (request.method == "GET"):
-        data = wk.get("A2:C100")
-        return render_template("data.html", data=data)
+        return wk.get("A2:D1000")
     auth = request.headers.get("Authorization")
     if (auth == None or auth.split()[1] != token):
         return jsonify({"error": "Invalid Auth Token", "token": auth})
     data = request.get_json()
     print(data)
-    reading = [data.get("time"), data.get("temperature"), data.get("humidity")]
+    reading = [data.get("time"), data.get("temperature"),
+               data.get("humidity"), data.get("Sunlight")]
     print(reading)
     if None in reading:
         return jsonify({"error": "Wrong format", "reading": data})
