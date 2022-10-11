@@ -1,3 +1,4 @@
+from datetime import datetime
 import os
 import json
 from flask import Flask, request, render_template, jsonify
@@ -17,6 +18,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scopes)
 acc = authorize(creds)
 sh = acc.open("Plantonic-Sensor-Data")
 wk = sh.worksheet('temp-hum')
+water_n = False
 
 token = os.getenv("DATA_PASS") if os.getenv(
     "DATA_PASS") != None else "Bearer Test"
@@ -26,6 +28,30 @@ token = os.getenv("DATA_PASS") if os.getenv(
 def home():
     data = wk.get("A2:D1000")
     return render_template("data.html", data=data)
+
+
+@app.route("/water")
+def need_water():
+    return jsonify({
+        "water": False if wk.acell("E1").value == "FALSE" else True,
+        "time": datetime.now()
+    })
+
+
+@app.route("/setWaterTrue")
+def set_water_true():
+    wk.update_acell("E1", True)
+    return jsonify({
+        "time": datetime.now()
+    })
+
+
+@app.route("/setWaterFalse")
+def set_water_false():
+    wk.update_acell("E1", False)
+    return jsonify({
+        "time": datetime.now()
+    })
 
 
 @app.route("/data", methods=["POST", "GET"])
